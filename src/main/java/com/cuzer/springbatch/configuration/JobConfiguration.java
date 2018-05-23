@@ -1,4 +1,4 @@
-package com.cuzer.springbatchhelloworld.configuration;
+package com.cuzer.springbatch.configuration;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
