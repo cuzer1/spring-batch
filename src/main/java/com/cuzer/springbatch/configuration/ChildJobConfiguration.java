@@ -28,11 +28,11 @@ public class ChildJobConfiguration {
 				}).build();
 	}
 
-	@Bean
-	public Job childJob() {
-		return jobBuilderFactory.get("childJob")
-				.start(step1a())
-				.build();
-	}
+//	@Bean
+//	public Job childJob() {
+//		return jobBuilderFactory.get("childJob")
+//				.start(step1a())
+//				.build();
+//	}
 
 }

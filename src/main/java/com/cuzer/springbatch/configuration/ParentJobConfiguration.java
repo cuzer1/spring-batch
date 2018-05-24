@@ -25,14 +25,14 @@ public class ParentJobConfiguration {
 	@Autowired
 	private JobLauncher jobLauncher;
 
-	@Bean
-	public Step step1() {
-		return stepBuilderFactory.get("step1")
-				.tasklet((contribution, chunkContext) -> {
-					System.out.println(">> This is step 1");
-					return RepeatStatus.FINISHED;
-				}).build();
-	}
+//	@Bean
+//	public Step step1() {
+//		return stepBuilderFactory.get("step1")
+//				.tasklet((contribution, chunkContext) -> {
+//					System.out.println(">> This is step 5");
+//					return RepeatStatus.FINISHED;
+//				}).build();
+//	}
 
 //	@Bean
 //	public Job parentJob(JobRepository jobRepository, PlatformTransactionManager transactionManager) {

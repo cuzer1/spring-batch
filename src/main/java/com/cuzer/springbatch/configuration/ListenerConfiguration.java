@@ -57,15 +57,15 @@ public class ListenerConfiguration {
 		
 	}
 	
-	@Bean
-	public Job listenerJob(JavaMailSender javaMailSender) {
-//	public Job listenerJob() {
-		return jobBuilderFactory.get("listenerJob")
-				.start(step1())
-				.listener(new  JobListener(javaMailSender))
-				.build();
-	}
-	
+//	@Bean
+//	public Job listenerJob(JavaMailSender javaMailSender) {
+////	public Job listenerJob() {
+//		return jobBuilderFactory.get("listenerJob")
+//				.start(step1())
+//				.listener(new  JobListener(javaMailSender))
+//				.build();
+//	}
+//	
 	
 
 }
