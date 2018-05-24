@@ -51,14 +51,14 @@ public class DecisionConfiguration {
 		return new OddDecider();
 	}
 
-	@Bean
-	public Job job() {
-		return jobBuilderFactory.get("job").start(startStep()).next(decider()).from(decider()).on("ODD").to(oddStep())
-				.from(decider()).on("EVEN").to(evenStep()).from(oddStep()).on("*").to(decider())
-				// .from(decider()).on("ODD").to(oddStep())
-				// .from(decider()).on("EVEN").to(evenStep())
-				.end().build();
-	}
+//	@Bean
+//	public Job job() {
+//		return jobBuilderFactory.get("job").start(startStep()).next(decider()).from(decider()).on("ODD").to(oddStep())
+//				.from(decider()).on("EVEN").to(evenStep()).from(oddStep()).on("*").to(decider())
+//				// .from(decider()).on("ODD").to(oddStep())
+//				// .from(decider()).on("EVEN").to(evenStep())
+//				.end().build();
+//	}
 
 	public static class OddDecider implements JobExecutionDecider {
 
