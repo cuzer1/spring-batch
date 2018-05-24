@@ -23,7 +23,7 @@ public class JobConfiguration {
 	@Autowired
 	private StepBuilderFactory stepBuilderFactory;
 
-	@Bean
+	
 	public Step step1() {
 		return stepBuilderFactory.get("step1").tasklet(new Tasklet() {
 
@@ -36,7 +36,7 @@ public class JobConfiguration {
 		}).build();
 	}
 
-	@Bean
+	
 	public Step step2() {
 		return stepBuilderFactory.get("step2").tasklet((contribution, chuckContext) -> {
 			System.out.println(">> Step 2 executed.");
@@ -55,13 +55,27 @@ public class JobConfiguration {
 		}).build();
 	}
 
+//	@Bean
+//	public Job hellowWorldJob() {
+//		return jobBuilderFactory.get("helloWorldJob")
+//				.start(step1())
+//				.next(step2())
+//				.next(step3())
+//				.build();
+//	}
+
+	
+	
 	@Bean
-	public Job hellowWorldJob() {
-		return jobBuilderFactory.get("helloWorldJob")
+	public Job TransitionJob() {
+		return jobBuilderFactory.get("transitionJob")
 				.start(step1())
-				.next(step2())
-				.next(step3())
+				.on("COMPLETED").to(step2())
+//				.from(step2()).on("COMPLETED").to(step3())
+				.from(step2()).on("COMPLETED").stopAndRestart(step3())
+				
+				
+				.from(step3()).end()
 				.build();
 	}
-
 }
