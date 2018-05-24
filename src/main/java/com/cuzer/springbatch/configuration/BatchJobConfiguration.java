@@ -1,6 +1,5 @@
 package com.cuzer.springbatch.configuration;
 
-import org.springframework.batch.core.Job;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -12,7 +11,6 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
 @Configuration
 public class BatchJobConfiguration {
@@ -48,10 +46,10 @@ public class BatchJobConfiguration {
 		}
 	}
 
-	@Bean
-	public Job job() {
-		return jobBuilderFactory.get("splitjob").start(flow1()).split(new SimpleAsyncTaskExecutor()).add(flow2()).end()
-				.build();
-	}
+//	@Bean
+//	public Job job() {
+//		return jobBuilderFactory.get("splitjob").start(flow1()).split(new SimpleAsyncTaskExecutor()).add(flow2()).end()
+//				.build();
+//	}
 
 }
